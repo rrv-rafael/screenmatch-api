@@ -1,0 +1,17 @@
+server:
+  servlet:
+    context-path: /api
+spring:
+  application:
+    name: screenmatch-api
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+omdb:
+  base-url: https://omdbapi.com
+  api-key: ${OMDB_API_KEY}
