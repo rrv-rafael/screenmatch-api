@@ -8,6 +8,8 @@ import com.rrv.screenmatch.repository.SerieRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class SerieService {
@@ -19,5 +21,9 @@ public class SerieService {
         Serie serie = serieMapper.toEntity(omdbClient.findByTitle(title));
 
         return serieMapper.toResponse(serieRepository.save(serie));
+    }
+
+    public List<SerieResponse> findAll() {
+        return serieMapper.toResponse(serieRepository.findAll());
     }
 }
