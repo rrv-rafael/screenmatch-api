@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record OmdbSerieResponse(
+public record OmdbSeriesResponse(
         @JsonProperty("Title") String title,
         @JsonProperty("Genre") String genre,
         @JsonProperty("Actors") String actors,

@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "serie")
+@Table(name = "series")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Builder
-public class Serie {
+public class Series {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -43,7 +43,7 @@ public class Serie {
     @Column(nullable = false)
     private Integer totalSeasons;
 
-    @OneToMany(mappedBy = "serie", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "series", fetch = FetchType.LAZY)
     @Builder.Default
     private List<Episode> episodes = new ArrayList<>();
 }

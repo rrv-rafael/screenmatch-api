@@ -35,6 +35,6 @@ public class Episode {
     private LocalDate releaseDate;
 
     @ManyToOne
-    @JoinColumn(name = "serie_id")
-    private Serie serie;
+    @JoinColumn(name = "series_id")
+    private Series series;
 }

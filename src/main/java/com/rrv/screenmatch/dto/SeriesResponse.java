@@ -4,7 +4,7 @@ import com.rrv.screenmatch.enums.Genre;
 import lombok.Builder;
 
 @Builder
-public record SerieResponse(
+public record SeriesResponse(
         Long id,
         String title,
         Genre genre,
