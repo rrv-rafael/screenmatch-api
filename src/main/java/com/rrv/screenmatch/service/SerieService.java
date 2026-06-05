@@ -26,4 +26,8 @@ public class SerieService {
     public List<SerieResponse> findAll() {
         return serieMapper.toResponse(serieRepository.findAll());
     }
+
+    public List<SerieResponse> findTop5() {
+        return serieMapper.toResponse(serieRepository.findTop5ByOrderByRatingDesc());
+    }
 }

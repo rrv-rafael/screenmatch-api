@@ -23,6 +23,11 @@ public class SerieController {
         return ResponseEntity.ok(serieService.findAll());
     }
 
+    @GetMapping("/top5")
+    public ResponseEntity<List<SerieResponse>> getTop5() {
+        return ResponseEntity.ok(serieService.findTop5());
+    }
+
     @PostMapping
     public ResponseEntity<SerieResponse> create(@RequestBody @Valid SerieRequest serieRequest) {
         SerieResponse serieResponse = serieService.create(serieRequest.title());
