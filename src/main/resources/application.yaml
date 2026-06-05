@@ -17,4 +17,5 @@ omdb:
   api-key: ${OMDB_API_KEY}
 app:
   cors:
-    allowed-origin: http://127.0.0.1:3000
+    allowed-origin:
+      - http://127.0.0.1:3000
