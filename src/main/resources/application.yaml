@@ -15,3 +15,6 @@ spring:
 omdb:
   base-url: https://omdbapi.com
   api-key: ${OMDB_API_KEY}
+app:
+  cors:
+    allowed-origin: http://127.0.0.1:3000
