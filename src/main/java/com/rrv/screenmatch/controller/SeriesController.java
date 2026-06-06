@@ -1,10 +1,13 @@
 package com.rrv.screenmatch.controller;
 
+import com.rrv.screenmatch.dto.EpisodeRequest;
+import com.rrv.screenmatch.dto.EpisodeResponse;
 import com.rrv.screenmatch.dto.SeriesRequest;
 import com.rrv.screenmatch.dto.SeriesResponse;
 import com.rrv.screenmatch.service.SeriesService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -26,6 +29,13 @@ public class SeriesController {
     @GetMapping("/top5")
     public ResponseEntity<List<SeriesResponse>> getTop5() {
         return ResponseEntity.ok(seriesService.findTop5());
+    }
+
+    @PostMapping("/episodes")
+    public ResponseEntity<List<EpisodeResponse>> getSeries(@RequestBody @Valid EpisodeRequest episodeRequest) {
+        List<EpisodeResponse> episodesResponse = seriesService.createEpisodes(episodeRequest.seriesTitle());
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(episodesResponse);
     }
 
     @PostMapping

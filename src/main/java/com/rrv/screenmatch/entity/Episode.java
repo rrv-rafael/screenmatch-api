@@ -28,10 +28,8 @@ public class Episode {
     @Column(nullable = false)
     private Integer number;
 
-    @Column(nullable = false)
     private Double rating;
 
-    @Column(nullable = false)
     private LocalDate releaseDate;
 
     @ManyToOne
