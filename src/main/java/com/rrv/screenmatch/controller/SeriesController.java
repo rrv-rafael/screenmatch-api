@@ -31,6 +31,11 @@ public class SeriesController {
         return ResponseEntity.ok(seriesService.findTop5());
     }
 
+    @GetMapping("/latest-releases")
+    public ResponseEntity<List<SeriesResponse>> getLatestReleases() {
+        return ResponseEntity.ok(seriesService.findLatestReleases());
+    }
+
     @PostMapping("/episodes")
     public ResponseEntity<List<EpisodeResponse>> getSeries(@RequestBody @Valid EpisodeRequest episodeRequest) {
         List<EpisodeResponse> episodesResponse = seriesService.createEpisodes(episodeRequest.seriesTitle());

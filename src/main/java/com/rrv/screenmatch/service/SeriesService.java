@@ -12,6 +12,7 @@ import com.rrv.screenmatch.repository.EpisodeRepository;
 import com.rrv.screenmatch.repository.SeriesRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -67,5 +68,9 @@ public class SeriesService {
 
     public List<SeriesResponse> findTop5() {
         return seriesMapper.toResponse(seriesRepository.findTop5ByOrderByRatingDesc());
+    }
+
+    public List<SeriesResponse> findLatestReleases() {
+        return seriesMapper.toResponse(seriesRepository.findWithLatestEpisodes(PageRequest.of(0, 5)));
     }
 }
