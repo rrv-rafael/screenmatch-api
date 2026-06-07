@@ -95,4 +95,8 @@ public class SeriesService {
 
         return seriesMapper.toResponse(seriesRepository.findByGenre(seriesGenre));
     }
+
+    public List<EpisodeResponse> findTopRatedEpisodesBySeriesId(Long id) {
+        return episodeMapper.toReponse(episodeRepository.findTopRatedBySeriesId(id, PageRequest.of(0, 5)));
+    }
 }

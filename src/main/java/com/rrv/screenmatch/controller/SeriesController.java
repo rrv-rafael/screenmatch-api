@@ -56,6 +56,11 @@ public class SeriesController {
         return ResponseEntity.ok(seriesService.findByGenre(genre));
     }
 
+    @GetMapping("/{id}/episodes/top-rated")
+    public ResponseEntity<List<EpisodeResponse>> getTopRatedEpisodesBySeriesId(@PathVariable Long id) {
+        return ResponseEntity.ok(seriesService.findTopRatedEpisodesBySeriesId(id));
+    }
+
     @PostMapping("/episodes")
     public ResponseEntity<List<EpisodeResponse>> getSeries(@RequestBody @Valid EpisodeRequest episodeRequest) {
         List<EpisodeResponse> episodesResponse = seriesService.createEpisodes(episodeRequest.seriesTitle());
