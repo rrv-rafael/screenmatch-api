@@ -73,4 +73,11 @@ public class SeriesService {
     public List<SeriesResponse> findLatestReleases() {
         return seriesMapper.toResponse(seriesRepository.findWithLatestEpisodes(PageRequest.of(0, 5)));
     }
+
+    public SeriesResponse findById(Long id) {
+        Series series = seriesRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Série não encontrada."));
+
+        return seriesMapper.toResponse(series);
+    }
 }

@@ -36,6 +36,11 @@ public class SeriesController {
         return ResponseEntity.ok(seriesService.findLatestReleases());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<SeriesResponse> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(seriesService.findById(id));
+    }
+
     @PostMapping("/episodes")
     public ResponseEntity<List<EpisodeResponse>> getSeries(@RequestBody @Valid EpisodeRequest episodeRequest) {
         List<EpisodeResponse> episodesResponse = seriesService.createEpisodes(episodeRequest.seriesTitle());
