@@ -1,6 +1,7 @@
 package com.rrv.screenmatch.repository;
 
 import com.rrv.screenmatch.entity.Series;
+import com.rrv.screenmatch.enums.Genre;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -21,4 +22,6 @@ public interface SeriesRepository extends JpaRepository<Series, Long> {
             ORDER BY MAX(e.releaseDate) DESC
             """)
     List<Series> findWithLatestEpisodes(Pageable pageable);
+
+    List<Series> findByGenre(Genre genre);
 }

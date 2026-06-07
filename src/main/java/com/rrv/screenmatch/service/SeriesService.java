@@ -6,6 +6,7 @@ import com.rrv.screenmatch.dto.OmdbSeasonResponse;
 import com.rrv.screenmatch.dto.SeriesResponse;
 import com.rrv.screenmatch.entity.Episode;
 import com.rrv.screenmatch.entity.Series;
+import com.rrv.screenmatch.enums.Genre;
 import com.rrv.screenmatch.mapper.EpisodeMapper;
 import com.rrv.screenmatch.mapper.SeriesMapper;
 import com.rrv.screenmatch.repository.EpisodeRepository;
@@ -87,5 +88,11 @@ public class SeriesService {
 
     public List<EpisodeResponse> findEpisodesBySeriesIdAndSeason(Long id, Integer season) {
         return episodeMapper.toReponse(episodeRepository.findBySeriesIdAndSeasonOrderByNumberAsc(id, season));
+    }
+
+    public List<SeriesResponse> findByGenre(String genre) {
+        Genre seriesGenre = Genre.fromFrontend(genre);
+
+        return seriesMapper.toResponse(seriesRepository.findByGenre(seriesGenre));
     }
 }
