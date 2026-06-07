@@ -82,6 +82,10 @@ public class SeriesService {
     }
 
     public List<EpisodeResponse> findEpisodesBySeriesId(Long id) {
-        return episodeMapper.toReponse(episodeRepository.findEpisodesBySeriesId(id));
+        return episodeMapper.toReponse(episodeRepository.findBySeriesIdOrderBySeason(id));
+    }
+
+    public List<EpisodeResponse> findEpisodesBySeriesIdAndSeason(Long id, Integer season) {
+        return episodeMapper.toReponse(episodeRepository.findBySeriesIdAndSeasonOrderByNumberAsc(id, season));
     }
 }
