@@ -80,4 +80,8 @@ public class SeriesService {
 
         return seriesMapper.toResponse(series);
     }
+
+    public List<EpisodeResponse> findEpisodesBySeriesId(Long id) {
+        return episodeMapper.toReponse(episodeRepository.findEpisodesBySeriesId(id));
+    }
 }

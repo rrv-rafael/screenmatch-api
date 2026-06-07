@@ -41,6 +41,7 @@ public class EpisodeMapper {
     public EpisodeResponse toResponse(Episode episode) {
         return EpisodeResponse.builder()
                 .id(episode.getId())
+                .season(episode.getSeason())
                 .title(episode.getTitle())
                 .releaseDate(episode.getReleaseDate())
                 .number(episode.getNumber())
